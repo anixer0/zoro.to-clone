@@ -14,7 +14,7 @@ $github = "https://github.com/kirixen";
 $twitter = "https://x.com/KiriX3n";
  
 $disqus = "https://.disqus.com/embed.js";
-$api = "https://.vercel.app"; 
+$api = "https://animeapi-v8nu.onrender.com"; 
 
 $banner = $websiteUrl . "/files/images/banner.png";
 ?>
