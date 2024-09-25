@@ -69,7 +69,7 @@ if (isset($video['sources']) && !empty($video['sources'])) {
 
 
 
-    <script src='https://goone.pro/js/jw8.23/jwplayer.js?v=10.0.2'></script>
+    <script src='jw.js'></script>
     <script>
   
         const playerInstance = jwplayer("player").setup({
@@ -91,7 +91,7 @@ if (isset($video['sources']) && !empty($video['sources'])) {
 
         playlist: [{
             title: "",
-            description: "<?=$anime['animeNameWithEP']?>",
+            description: "",
             image: "",
              sources: [{"file": `<?php echo $m3u8_url; ?>`}],
         }],
