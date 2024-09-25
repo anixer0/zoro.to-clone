@@ -1,5 +1,4 @@
-<?php 
-$conn = mysqli_connect("localhost", 'root' , '', "anime") or die("Connection fail");
+<?php
 
 
 $websiteTitle = "Zoro";
