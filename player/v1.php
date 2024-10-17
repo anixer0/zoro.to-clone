@@ -34,9 +34,8 @@ $data = json_decode($json2, true);
 
 // Extract necessary information
 $animeNameWithEP = $data['animeNameWithEP'];
-
+}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
