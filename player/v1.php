@@ -1,23 +1,41 @@
-<?php
-require('../php/info.php');
+<?php 
 
+$api = "https://YOUR_API_URL_WITHOUT_SLASH_AT_THE_END";
 $id = $_GET['id'];
 
 $json = file_get_contents("$api/vidcdn/watch/$id");
-$video = json_decode($json, true);
-
-$json1 = file_get_contents("$api/getEpisode/$id");
-$anime = json_decode($json1, true);
-
-if (isset($video['sources']) && !empty($video['sources'])) {
-    $highest_quality_index = count($video['sources']) - 1;
-    $m3u8_url = $video['sources'][$highest_quality_index]['file'];
-} else {
-    echo "Error: M3U8 URL not found in API response";
-    exit;
+$json = json_decode($json, true);
+$sources_default = $json['sources'];
+foreach($sources_default as $sources_default){
+    $m3u8 = $sources_default['file'];
 }
-?>
 
+// $json = file_get_contents("https://api.consumet.org/anime/gogoanime/watch/$id");
+// $json = json_decode($json, true);
+// $sources_default = $json['sources'];
+// foreach($sources_default as $sources_default){
+//     if($sources_default['quality'] === "default"){
+//     $m3u8 = $sources_default['url'];
+//     }
+// }
+$download = str_replace("streaming.php","download",$json['Referer']);
+$defaultTitle = parse_url($download);
+parse_str($defaultTitle['query'], $defaultTitle);
+$animeTitle = $defaultTitle['title'];
+
+
+$api_url = "$api/getepisode/$id";
+
+// Fetch the JSON response from the API and store it in $json2
+$json2 = file_get_contents($api_url);
+
+// Decode the JSON into an array
+$data = json_decode($json2, true);
+
+// Extract necessary information
+$animeNameWithEP = $data['animeNameWithEP'];
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
