@@ -1,6 +1,6 @@
 <?php 
 
-$api = "https://YOUR_API_URL_WITHOUT_SLASH_AT_THE_END";
+$api = "https://streaming-api1.vercel.app";
 $id = $_GET['id'];
 
 $json = file_get_contents("$api/vidcdn/watch/$id");
